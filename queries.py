@@ -4,5 +4,5 @@ import sqlite3
 
 def find_orders(connection, customer):
     """Return one customer's orders, sorted by ID."""
-    statement = f"SELECT id, customer, amount FROM orders WHERE customer = '{customer}' ORDER BY id"
-    return connection.execute(statement).fetchall()
+    statement = "SELECT id, customer, amount FROM orders WHERE customer = ? ORDER BY id"
+    return connection.execute(statement, (customer,)).fetchall()
